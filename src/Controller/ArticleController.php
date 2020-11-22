@@ -116,20 +116,7 @@
             $response = new Response();
             $response->send();
         }
-        //  /**
-        //  *  @Route("/article/save")
-        //  */
-        // public function save(){
-        //     $entityManager=$this->getDoctrine()->getManager();
-
-        //     $article=new Article();
-        //     $article->setTitle('Article Two');
-        //     $article->setBody('This is the body for Article two');
-
-        //     $entityManager->persist($article);
-        //     $entityManager->flush();
-        //     return new Response('Saves a article with the id of '.$article->getId());
-        // } 
+        
 
 
     }

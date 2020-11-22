@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SymphArt Article{% endblock %}
+{% block title %}My Posts{% endblock %}
 
 {% block body %}
+    <div>
+    <p>Logged in as {{ app.user.username }} </p>
+    </div>
+    <br>
     {% if articles %}
         <table id="articles" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Article Title</th>
+                    <th>Post Title</th>
                     <th>Actions</th>
                 </tr>
             </thead>

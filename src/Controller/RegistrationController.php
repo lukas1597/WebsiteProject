@@ -62,7 +62,28 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
-    
+
+
+    /**
+     *  @Route("edit/profile", name="edit_profile")
+     */
+
+    public function updateProfile(Request $request){
+        $usersession = $this->getUser();
+        $user = $this->getDoctrine()
+        ->getRepository(User::class)
+        ->find($usersession->getid());
+        if ($request->isMethod('POST')){
+            $user->setName($request->request->get("name"));
+            $user->setAddress($request->request->get("address"));
+            $user->SetCity($request->request->get("city"));
+            $user->setPhone($request->request->get("phone"));
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('article_list');
+        }
+
+        return $this->render('userpanel/edit.html.twig',['user'=> $user]);
+    }
     /**
      * @Route("/verify/email", name="app_verify_email")
      */
